@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bun websockets</title>
+</head>
+<style>
+    body {
+        background: #000;
+        color: #fff;
+    }
+    button, input, textarea {
+        color: #fff;
+        background: #000;
+    }
+</style>
+<body>
+    <div>
+        <button onclick="connect()">Connect</button>
+        <p>Received:</p>
+        <div>
+            <p id="content"></p>
+        </div>
+    </div>
+</body>
+<script>
+    let wsClient;
+
+    function handleMessage(event) {
+        console.log('Received', event);
+    }
+
+    function handleError(error) {
+        console.log("Websocket error: ", error);
+    }
+
+    function connect() {
+        wsClient = new WebSocket("ws://localhost:3000/ws");
+
+        wsClient.addEventListener('message', handleMessage);
+        wsClient.addEventListener('error', handleError);
+
+        // wsClient.subscribe('from_remote', handleMessage);
+
+        console.log('Main UI connected: ', wsClient);
+    }
+
+
+</script>
+</html>

@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Bun websockets</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<style>
-    body {
-        background: #000;
-        color: #fff;
-    }
-    button, input, textarea {
-        color: #fff;
-        background: #000;
-    }
-</style>
-<body>
+<body class="bg-black text-white">
     <div>
         <div>
-            <button onclick="connect()">Connect</button>
+            <button onclick="connect()" class="bg-black text-white">
+                Connect
+            </button>
         </div>
         <label>
-            <textarea></textarea>
+            <textarea class="bg-black text-white"></textarea>
         </label>
-        <button onclick="send()">Send</button>
+        <button onclick="send()" class="bg-black text-white">
+            Send
+        </button>
     </div>
 </body>
 <script>
